@@ -39,7 +39,7 @@ void showLidarTopview(std::vector<LidarPoint> &lidarPoints, cv::Size worldSize, 
         float yw = (*it).y; // world position in m with y facing left from sensor
 
         int y = (-xw * imageSize.height / worldSize.height) + imageSize.height;
-        int x = (-yw * imageSize.height / worldSize.height) + imageSize.width / 2;
+        int x = (-yw * imageSize.width / worldSize.height) + imageSize.width / 2;
 
         float zw = (*it).z; // world position in m with y facing left from sensor
         if(zw > -1.40){       
@@ -95,7 +95,7 @@ void show3DObjects(std::vector<BoundingBox>& boundingBoxes, cv::Size worldSize, 
 
             //top-view plot coordinate
             int y = (-xw * imageSize.height / worldSize.height) + imageSize.height;
-            int x = (-yw * imageSize.height / worldSize.height) + imageSize.width / 2;
+            int x = (-yw * imageSize.width /worldSize.width) + imageSize.width / 2;
 
             //
             top = top < y ? top :y;
